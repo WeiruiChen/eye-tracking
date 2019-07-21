@@ -1,0 +1,248 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#webcam, #overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#eyes {
+  position: absolute;
+  top: 0;
+  left: 400px;
+}
+
+#target {
+  background-color: lightgreen;
+  position: absolute;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  transition: all 0.1s ease;
+  box-shadow: 0 0 20px 10px white;
+  border: 4px solid rgba(0,0,0,0.5);
+  opacity: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #05668d;
+  color: #ebf2fa;
+  font-size: 16pt;
+  padding: 0.5em;
+}
+
+a {
+  color: inherit;
+}
+
+@-webkit-keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+#info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24pt;
+  background-color: lightgreen;
+  padding: 1em;
+  border-radius: 10px;
+  max-width: 500px;
+  transition: all 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#info h3 {
+  margin: 0.2em 0;
+}
+
+#info.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+
+#training {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  background-color: lightblue;
+  padding: 0.5em;
+}
+
+#training table {
+  width: 100%;
+  font-size: 16pt;
+  font-family: 'Source Code Pro', monospace;
+}
+
+#training table td:nth-child(2) {
+  text-align: right;
+}
+
+.buttonwrap {
+  text-align: center;
+}
+
+button {
+  position: relative;
+  z-index: 11;
+  cursor: pointer;
+  font-size: 10pt;
+  padding: 0.125em 0em;
+  margin: 0.1em;
+  width: 140px;
+  font-family: 'Source Code Pro', monospace;
+}
+
+#heatMap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#data-uploader, #model-uploader {
+  display: none;
+}
+
+x-sign {
+  --interval: 1s;
+  display: block;
+  text-shadow: 
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(100) var(--interval) 1s infinite;
+}
+
+x-sign:nth-of-type(1) {
+  color: yellow;
+  --color1: goldenrod;
+  --color2: orangered;
+  --color3: mediumblue;
+  --color4: purple;
+  font-family: Gruppo;
+}
+
+x-sign:nth-of-type(2) {
+  color: lightpink;
+  --color1: pink;
+  --color2: orangered;
+  --color3: red;
+  --color4: magenta;
+  font-family: Bad Script;
+}
+
+x-sign:nth-of-type(3) {
+  color: lightyellow;
+  --color1: yellow;
+  --color2: lime;
+  --color3: green;
+  --color4: mediumblue;
+  font-family: Kumar One Outline;
+}
+
+x-sign:nth-of-type(4) {
+  color: lightyellow;
+  --color1: gold;
+  --color2: firebrick;
+  --color3: pink;
+  --color4: red;
+  font-family: Londrina Outline;
+}
+
+
+x-sign:nth-of-type(5) {
+  color: azure;
+  --color1: azure;
+  --color2: aqua;
+  --color3: dodgerblue;
+  --color4: blue;
+  font-family: Sriracha;
+}
+
+x-sign:nth-of-type(6) {
+  color: tomato;
+  --color1: orangered;
+  --color2: firebrick;
+  --color3: maroon;
+  --color4: darkred;
+  font-family: Yellowtail;
+}
+
+x-sign:nth-of-type(7) {
+  color: lightyellow;
+  --color1: yellow;
+  --color2: orange;
+  --color3: brown;
+  --color4: purple;
+  font-family: Bad Script;
+}
+
+x-sign:nth-of-type(8) {
+  color: yellow;
+  --color1: yellow;
+  --color2: lime;
+  --color3: green;
+  --color4: darkgreen;
+  font-family: Monoton;
+}
+
+x-sign:nth-of-type(9) {
+  color: lightyellow;
+  --color1: yellow;
+  --color2: gold;
+  --color3: orange;
+  --color4: darkred;
+  font-family: Sriracha;
+}
+
+@keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
